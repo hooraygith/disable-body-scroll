@@ -19,7 +19,6 @@
             overflow: auto;
         }
         .main {
-            background: grey;
             height: 1000px;
         }
         #scroll-prevent {
@@ -30,8 +29,9 @@
             right: 0;
             bottom: 0;
             left: 0;
+            background: rgba(0, 0, 0, 0.5);
         }
-        .popup {
+        .content {
             position: absolute;
             top: 80px;
             left: 0;
@@ -58,9 +58,9 @@
               Pages optimized to display well on mobile devices should include a meta viewport in the head of the document specifying width=device-width
         </div>
     </div>
-    <div>
+    <div class="popup">
         <div id="scroll-prevent"></div>
-        <div class="popup">
+        <div class="content">
             <div class="scroll">
                 Pages optimizedPages optimized to display well on mobile devices should include a meta viewport in the head of the document specifying width=device-width
             </div>
@@ -70,6 +70,12 @@
     <script>
         document.querySelector('#scroll-prevent').addEventListener('touchmove', function(e) {
             e.preventDefault()
+        })
+        document.querySelector('#scroll-prevent').addEventListener('click', function(e) {
+            document.querySelector('.popup').style.display = 'none'
+        })
+        document.querySelector('.main').addEventListener('click', function(e) {
+            document.querySelector('.popup').style.display = ''
         })
     </script>
 </body>
