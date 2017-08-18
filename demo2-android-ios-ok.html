@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>prevent scroll - all compatible</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <style>
+        html, body {
+            margin: 0;
+            height: 100%;
+            overflow: auto;
+        }
+        body {
+            -webkit-overflow-scrolling: touch;
+        }
+        .wrap {
+            height: 100%;
+            overflow: auto;
+        }
+        .main {
+            background: grey;
+            height: 1000px;
+        }
+        #scroll-prevent {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+        .popup {
+            position: absolute;
+            top: 80px;
+            left: 0;
+            background: red;
+        }
+        .scroll {
+            width: 150px;
+            height: 300px;
+            background: #fff;
+            font-size: 30px;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="main">
+            111111111111Mar 17, 2014 - I tend to use this: meta name="viewport" content="width=device-width". Although I see this is recommended a lot: meta name="viewport"
+             Pages optimized to display well on mobile devices should include a meta viewport in the head of the document specifying width=device-width
+             <br>
+             <br>
+             <br>
+             <br>
+              Pages optimized to display well on mobile devices should include a meta viewport in the head of the document specifying width=device-width
+        </div>
+    </div>
+    <div>
+        <div id="scroll-prevent"></div>
+        <div class="popup">
+            <div class="scroll">
+                Pages optimizedPages optimized to display well on mobile devices should include a meta viewport in the head of the document specifying width=device-width
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('#scroll-prevent').addEventListener('touchmove', function(e) {
+            e.preventDefault()
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>阻止滚动冒泡 android</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <style>
+        html, body {
+            margin: 0;
+            height: 100%;
+            overflow: auto;
+        }
+        body {
+            box-sizing: border-box;
+            -webkit-overflow-scrolling: touch;
+        }
+        body *,
+        body *:before,
+        body *:after {
+            box-sizing: inherit;
+        }
+        .main {
+            background: grey;
+            height: 1000px;
+        }
+        #scroll-parents {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+        .scroll {
+            width: 200px;
+            height: 200px;
+            margin: 100px auto 0;
+            background: #fff;
+            font-size: 30px;
+            overflow-y: scroll;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="main">
+            111111111111Mar 17, 2014 - I tend to use this: meta name="viewport" content="width=device-width". Although I see this is recommended a lot: meta name="viewport"
+             Pages optimized to display well on mobile devices should include a meta viewport in the head of the document specifying width=device-width
+             <br>
+             <br>
+             <br>
+             <br>
+
+
+
+
+              Pages optimized to display well on mobile devices should include a meta viewport in the head of the document specifying width=device-width
+        </div>
+    </div>
+
+    <div id="scroll-parents">
+        <div class="scroll">
+            The initial-scale property controls the zoom level when the page is first loaded. The maximum-scale, minimum-scale, and user-
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('#scroll-parents').addEventListener('touchmove', function(e) {
+            e.stopPropagation()
+        })
+    </script>
+
+
+
+</body>
+</html>
